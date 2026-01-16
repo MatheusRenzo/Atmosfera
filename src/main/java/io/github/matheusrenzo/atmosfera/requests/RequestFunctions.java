@@ -1,7 +1,6 @@
 package io.github.matheusrenzo.atmosfera.requests;
 
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
+import java.net.URI;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
@@ -16,7 +15,7 @@ public class RequestFunctions {
         if (responseCode > 399)
             throw new HTTPResponseException(responseCode);
 
-        Scanner scanner = new Scanner(new URL(URLString).openStream());
+        Scanner scanner = new Scanner(URI.create(URLString).toURL().openStream());
         StringBuilder response = new StringBuilder();
         while (scanner.hasNextLine())
             response.append(scanner.nextLine());
@@ -26,7 +25,7 @@ public class RequestFunctions {
     }
 
     public static int getResponseCode(String URLString) throws IOException {
-        URL url = new URL(URLString);
+        URL url = URI.create(URLString).toURL();
         HttpURLConnection con = (HttpURLConnection) url.openConnection();
         con.setRequestMethod("GET");
         con.connect();

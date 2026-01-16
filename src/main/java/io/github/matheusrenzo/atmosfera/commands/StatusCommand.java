@@ -17,11 +17,9 @@ import java.util.Calendar;
 import java.util.TimeZone;
 
 public class StatusCommand implements CommandExecutor {
-    private final Atmosfera plugin;
     private final ConfigManager config;
 
     public StatusCommand(Atmosfera plugin) {
-        this.plugin = plugin;
         this.config = plugin.getConfigManager();
     }
 
