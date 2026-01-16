@@ -1,0 +1,89 @@
+# Arquivo de Configuração do Atmosfera v1.0
+
+################################ CONFIGURAÇÕES GERAIS ########################################################
+# Por padrão, o Atmosfera verifica atualizações a cada 24 horas (1734000 ticks)                               #
+# Você pode alterar o intervalo aqui (ou definir como 0 para desativar verificações)                          #
+UpdateCheckInterval: 1734000
+
+# Defina como true para mensagens de debug no console                                                         #
+Debug: false
+###############################################################################################################
+
+################################# CONFIGURAÇÕES DE SINCRONIZAÇÃO DE TEMPO ####################################
+# Defina como true para ativar a sincronização de tempo                                                       #
+SyncTime: true
+
+# Por padrão, o Atmosfera aplicará as configurações abaixo a todos os mundos                                  #
+# Mundos End e Nether não serão sincronizados                                                                 #
+TimeSyncAllWorlds: true
+
+# Liste os mundos que você quer sincronizar o tempo                                                           #
+# Funciona apenas se TimeSyncAllWorlds estiver como false                                                     #
+TimeSyncWorlds:
+  - world
+
+# Defina como false para permitir o comando /time set (não recomendado)                                       #
+BlockTimeSetCommand: true
+
+# Impedir jogadores de dormir à noite (ainda poderão definir spawn)                                           #
+DisableBedsAtNight: true
+DisableBedsAtNightMessage: 'Você não pode pular a noite!'
+
+# Intervalo entre sincronizações de tempo (padrão: 5 segundos = 100 ticks)                                    #
+TimeSyncInterval: 100
+
+# Fuso horário para sincronização                                                                             #
+# Lista completa: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List                           #
+# Exemplos: America/Sao_Paulo, America/New_York, Europe/London                                                #
+Timezone: 'America/Sao_Paulo'
+
+# Configurações de nascer/pôr do sol                                                                          #
+# default = horários padrão do Minecraft (5:02 AM / 6:36 PM)                                                  #
+# real = sincroniza com localização real (configure latitude/longitude abaixo)                                #
+# custom = use horários personalizados                                                                        #
+SunriseSunset: real
+
+# Latitude e longitude para sincronização real de nascer/pôr do sol                                           #
+# Encontre coordenadas em: https://www.latlong.net/                                                           #
+# Exemplo São Paulo: Latitude -23.5505, Longitude -46.6333                                                    #
+SunriseSunsetLatitude: '-23.5505'
+SunriseSunsetLongitude: '-46.6333'
+
+# Horários personalizados para nascer/pôr do sol (usado quando SunriseSunset: custom)                         #
+SunriseCustomTime: '5:02:27 AM'
+SunsetCustomTime: '6:36:36 PM'
+###############################################################################################################
+
+################################# CONFIGURAÇÕES DE SINCRONIZAÇÃO DE CLIMA ####################################
+# Defina como true para ativar a sincronização de clima                                                       #
+SyncWeather: true
+
+# Por padrão, o Atmosfera aplicará as configurações abaixo a todos os mundos                                  #
+WeatherSyncAllWorlds: true
+
+# Liste os mundos que você quer sincronizar o clima                                                           #
+WeatherSyncWorlds:
+  - world
+
+# Defina como false para permitir o comando /weather (não recomendado)                                        #
+BlockWeatherCommand: true
+
+# Impedir jogadores de dormir durante tempestades                                                             #
+DisableBedsDuringThunder: true
+DisableBedsDuringThunderMessage: 'Você não pode pular a tempestade!'
+
+# Intervalo entre sincronizações de clima (padrão: 5 minutos = 6000 ticks)                                    #
+# Valor mínimo seguro com API gratuita: 40 ticks (2 segundos)                                                 #
+WeatherSyncInterval: 6000
+
+# Chave da API do OpenWeatherMap                                                                              #
+# Crie uma conta em: https://openweathermap.org/                                                              #
+# Crie uma chave em: https://openweathermap.org/appid                                                         #
+# NÃO COMPARTILHE SUA CHAVE!                                                                                  #
+APIKey: 'SUA_CHAVE_API_AQUI'
+
+# Latitude e longitude para sincronização de clima                                                            #
+# Use as mesmas coordenadas do fuso horário para melhor precisão                                              #
+WeatherLatitude: '-23.5505'
+WeatherLongitude: '-46.6333'
+###############################################################################################################

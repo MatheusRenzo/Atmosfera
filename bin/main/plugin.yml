@@ -1,0 +1,13 @@
+name: Atmosfera
+version: '${version}'
+description: Sincroniza o horário e clima do servidor com o mundo real
+main: io.github.matheusrenzo.atmosfera.Atmosfera
+load: POSTWORLD
+authors: [MatheusRenzo]
+website: https://github.com/MatheusRenzo/Atmosfera
+commands:
+  atmosfera:
+    description: Mostra o status atual da sincronização do Atmosfera
+    usage: /atmosfera
+    permission: atmosfera.status
+    permission-message: Você não tem permissão para usar este comando.
