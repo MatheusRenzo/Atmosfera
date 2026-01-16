@@ -19,7 +19,7 @@
 
 **Sincronize o horário e clima do seu servidor Minecraft com o mundo real!**
 
-[📥 Download](#-instalação) • [⚙️ Configuração](#%EF%B8%8F-configuração) • [📋 Placeholders](#-placeholders) • [🤝 Contribuir](#-contribuindo)
+[📥 Download](#-instalação) • [📚 Documentação](#-documentação-completa) • [⚙️ Configuração](#%EF%B8%8F-configuração) • [🤝 Contribuir](#-contribuindo)
 
 </div>
 
@@ -38,13 +38,10 @@
 
 ## 📥 Instalação
 
-1. Baixe o arquivo `Atmosfera-1.0-all.jar` da [página de releases](https://github.com/MatheusRenzo/Atmosfera/releases)
-2. Coloque o JAR na pasta `plugins` do seu servidor
-3. Inicie o servidor para gerar o `config.yml`
-4. Configure o plugin conforme suas preferências
-5. Reinicie o servidor ou use `/atmosfera reload`
-
-### Dependências
+1. Baixe o arquivo `Atmosfera-1.0-all.jar` da [página de Releases](https://github.com/MatheusRenzo/Atmosfera/releases).
+2. Coloque o JAR na pasta `plugins` do seu servidor.
+3. Inicie o servidor para gerar o `config.yml`.
+4. Configure o plugin conforme suas preferências.
 
 | Plugin | Obrigatório | Descrição |
 |--------|-------------|-----------|
@@ -52,9 +49,22 @@
 
 ---
 
-## ⚙️ Configuração
+## 📚 Documentação Completa
 
-O arquivo `config.yml` permite configurar:
+Preparamos uma **Wiki** detalhada para te ajudar em cada passo:
+
+*   **[🏠 Página Inicial](wiki/Home.md)**: Visão geral do projeto.
+*   **[🚀 Instalação](wiki/Instalacao.md)**: Guia passo a passo.
+*   **[⚙️ Configuração](wiki/Configuracao.md)**: Explicação de cada linha do `config.yml`.
+*   **[📋 Placeholders](wiki/Placeholders.md)**: Lista de variáveis para usar em Scoreboards/TAB.
+*   **[💻 Comandos](wiki/Comandos-e-Permissoes.md)**: Lista de comandos e permissões.
+*   **[❓ FAQ](wiki/FAQ.md)**: Perguntas frequentes e solução de problemas.
+
+---
+
+## ⚙️ Configuração Rápida
+
+O arquivo `config.yml` permite configurar o essencial:
 
 ```yaml
 # Fuso horário (exemplo: America/Sao_Paulo)
@@ -66,82 +76,36 @@ SyncTime: true
 # Ativar sincronização de clima
 SyncWeather: true
 
-# Coordenadas para clima e nascer/pôr do sol
+# Coordenadas e API Key
 WeatherLatitude: '-23.5505'
 WeatherLongitude: '-46.6333'
-
-# Chave da API do OpenWeatherMap
 APIKey: 'SUA_CHAVE_AQUI'
 ```
-
-> 💡 **Dica:** Obtenha sua chave API gratuita em [openweathermap.org](https://openweathermap.org/appid)
-
----
-
-## 🎮 Comandos
-
-| Comando | Permissão | Descrição |
-|---------|-----------|-----------|
-| `/atmosfera` | `atmosfera.status` | Mostra o status da sincronização |
-
----
-
-## 📋 Placeholders
-
-Use estes placeholders com PlaceholderAPI em qualquer plugin compatível:
-
-| Placeholder | Descrição | Exemplo |
-|-------------|-----------|---------|
-| `%atmosfera_time%` | Hora atual (HH:mm) | `14:30` |
-| `%atmosfera_time_sec%` | Hora com segundos | `14:30:45` |
-| `%atmosfera_time_12h%` | Hora formato 12h | `02:30 PM` |
-| `%atmosfera_date%` | Data atual | `16/01/2026` |
-| `%atmosfera_status%` | Status do clima | `Limpo ☀️` |
-| `%atmosfera_weather_icon%` | Ícone do clima | `☀` `🌧` `⛈` |
-| `%atmosfera_pvp%` | Status PVP | `ON` / `OFF` |
-| `%atmosfera_pvp_status%` | PVP formatado | `&c&l⚔ PVP ATIVO` |
-| `%atmosfera_is_night%` | É noite? | `true` / `false` |
-| `%atmosfera_period%` | Período do dia | `Manhã` `Tarde` `Noite` |
-| `%atmosfera_period_icon%` | Ícone do período | `☀` / `☾` |
-
----
-
-## 🔨 Compilando
-
-Requisitos:
-- Java 17+
-- Gradle
-
-```bash
-# Clone o repositório
-git clone https://github.com/MatheusRenzo/Atmosfera.git
-
-# Entre na pasta
-cd Atmosfera
-
-# Compile
-./gradlew shadowJar
-```
-
-O JAR será gerado em `build/libs/Atmosfera-1.0-all.jar`
 
 ---
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Sinta-se à vontade para:
+Quer ajudar a melhorar o Atmosfera? Ficamos felizes com sua ajuda!
 
-1. Fazer um Fork do projeto
-2. Criar uma branch para sua feature (`git checkout -b feature/NovaFeature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona NovaFeature'`)
-4. Push para a branch (`git push origin feature/NovaFeature`)
-5. Abrir um Pull Request
+### 🐛 Encontrou um Bug? (Issues)
+Se você achou um erro ou tem uma sugestão, abra uma **Issue**.
+1. Vá na aba [Issues](https://github.com/MatheusRenzo/Atmosfera/issues).
+2. Clique em **New Issue**.
+3. Descreva o problema ou sua ideia.
+
+### 💻 Quer enviar código? (Fork & Pull Request)
+1.  Faça um **Fork** do projeto (cria uma cópia no seu perfil).
+2.  Crie uma **Branch** para sua modificação (`git checkout -b feature/MinhaMelhoria`).
+3.  Faça o **Commit** das suas alterações (`git commit -m 'Adiciona MinhaMelhoria'`).
+4.  Faça o **Push** para a Branch (`git push origin feature/MinhaMelhoria`).
+5.  Abra um **Pull Request** aqui no repositório original.
 
 ---
 
 ## 📝 Licença
 
-Este projeto está sob a licença GPL-3.0. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está sob a licença **GPL-3.0**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ---
 
