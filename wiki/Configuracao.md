@@ -1,88 +1,70 @@
-# Guia de Configuração
+# Configurando o Atmosfera
 
-O arquivo `config.yml` é o coração do Atmosfera. Aqui você define como a sincronização deve funcionar.
+O arquivo `config.yml` controla todo o comportamento do plugin. Abaixo explicamos cada seção detalhadamente.
 
-## Exemplo Completo
+## 📂 Localização do Arquivo
+O arquivo fica em: `plugins/Atmosfera/config.yml`.
+
+## 🌍 Sincronização de Tempo (TimeSync)
+
+Esta seção define como o relógio do jogo se comporta.
 
 ```yaml
-# Arquivo de Configuração do Atmosfera v1.0
-
-################################ CONFIGURAÇÕES GERAIS ########################################################
-UpdateCheckInterval: 1734000 # Verifica atualizações a cada 24h (em ticks)
-Debug: false # Ative apenas se estiver tendo problemas
-###############################################################################################################
-
-################################# TEMPO (HORÁRIO) ############################################################
-SyncTime: true # Ativa/Desativa sincronização de horário
-
-# Define se sincroniza TODOS os mundos ou apenas os listados
-TimeSyncAllWorlds: true 
-TimeSyncWorlds:
-  - world
-  - survival
-
-# Bloqueia o comando /time set para evitar desincronização
-BlockTimeSetCommand: true
-
-# Impede jogadores de dormir para pular a noite (já que a noite é real)
-DisableBedsAtNight: true
-DisableBedsAtNightMessage: 'Você não pode pular a noite! Ela é sincronizada com o mundo real.'
-
-# Fuso Horário (Timezone)
-# Importante: Use o formato "Continente/Cidade"
-Timezone: 'America/Sao_Paulo'
-
-# Configuração de Nascer/Pôr do Sol
-# 'default': Padrão do Minecraft
-# 'real': Baseado na latitude/longitude (Recomendado)
-# 'custom': Horários fixos
-SunriseSunset: real
-
-# Coordenadas (Usado se SunriseSunset: real)
-SunriseSunsetLatitude: '-23.5505'
-SunriseSunsetLongitude: '-46.6333'
-###############################################################################################################
-
-################################# CLIMA (CHUVA/TEMPESTADE) ###################################################
-SyncWeather: true # Ativa/Desativa sincronização de clima
-
-WeatherSyncAllWorlds: true
-WeatherSyncWorlds:
-  - world
-
-BlockWeatherCommand: true
-
-# Impede dormir durante tempestades
-DisableBedsDuringThunder: true
-DisableBedsDuringThunderMessage: 'Você não pode pular a tempestade!'
-
-# Intervalo de verificação (em ticks). 6000 ticks = 5 minutos.
-WeatherSyncInterval: 6000
-
-# SUA CHAVE API (Obrigatória para funcionar o clima)
-# Pegue em: https://openweathermap.org/api
-APIKey: 'SUA_CHAVE_AQUI'
-
-# Coordenadas para verificação do clima
-WeatherLatitude: '-23.5505'
-WeatherLongitude: '-46.6333'
-###############################################################################################################
+SyncTime: true              # Ativa a sincronização de tempo
+TimeSyncAllWorlds: true     # Se true, afeta todos os mundos normais
+Timezone: 'America/Sao_Paulo' # O fuso horário que o servidor seguirá
 ```
 
-## Explicação Detalhada
+### Como escolher o Timezone?
+Você deve usar o formato `Continente/Cidade`.
+*   [Clique aqui para ver a lista de Timezones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)
 
-### Timezone
-Define qual relógio o servidor vai seguir.
-*   **Exemplos**: `America/Sao_Paulo`, `Europe/London`, `America/New_York`, `Asia/Tokyo`.
-*   [Lista completa de Timezones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List)
+### Nascer e Pôr do Sol
+O plugin pode calcular exatamente quando o sol nasce e se põe na sua cidade.
 
-### API Key (OpenWeatherMap)
-Para o clima funcionar, você precisa de uma chave gratuita:
-1.  Crie uma conta em [OpenWeatherMap](https://openweathermap.org/).
-2.  Vá em "My API Keys".
-3.  Copie a chave e cole em `APIKey` no arquivo `config.yml`.
-4.  **Atenção**: Pode levar alguns minutos para a chave ativar após criar a conta.
+```yaml
+SunriseSunset: real               # Use 'real' para cálculo preciso
+SunriseSunsetLatitude: '-23.5505' # Latitude da sua cidade
+SunriseSunsetLongitude: '-46.6333' # Longitude da sua cidade
+```
 
-### Coordenadas (Latitude/Longitude)
-Para saber se está chovendo ou qual a hora exata do pôr do sol, o plugin precisa saber "onde" ele está.
-*   Use sites como [LatLong.net](https://www.latlong.net/) para pegar as coordenadas da sua cidade.
+> **💡 Onde pegar as coordenadas?**
+> Acesse [LatLong.net](https://www.latlong.net/), digite o nome da sua cidade e copie a Latitude e Longitude.
+
+---
+
+## 🌧️ Sincronização de Clima (WeatherSync)
+
+Se chover na vida real, choverá no jogo.
+
+```yaml
+SyncWeather: true
+APIKey: 'SUA_CHAVE_AQUI'
+WeatherLatitude: '-23.5505'
+WeatherLongitude: '-46.6333'
+```
+
+### 🔑 Como pegar a API Key (Gratuito)
+O clima depende do OpenWeatherMap. Siga os passos:
+
+1.  Crie uma conta em [OpenWeatherMap.org](https://home.openweathermap.org/users/sign_up).
+2.  Após confirmar o e-mail, vá para a aba **[API Keys](https://home.openweathermap.org/api_keys)**.
+3.  Copie a chave (é um código longo de letras e números).
+4.  Cole no `config.yml` onde diz `APIKey`.
+5.  *Nota: Pode levar de 10 a 30 minutos para a chave ativar após ser criada.*
+
+---
+
+## ⚔️ Eventos e Regras
+
+```yaml
+# Bloqueia comandos que podem "quebrar" a sincronização
+BlockTimeSetCommand: true
+BlockWeatherCommand: true
+
+# Impede pular a noite, já que ela deve durar o tempo real
+DisableBedsAtNight: true
+
+# Aviso quando o jogador tenta dormir
+DisableBedsAtNightMessage: 'Você não pode pular a noite! Ela é sincronizada com o mundo real.'
+```

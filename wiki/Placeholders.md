@@ -1,43 +1,43 @@
 # Placeholders
 
-O Atmosfera possui integração nativa com o **PlaceholderAPI**. Isso significa que você pode exibir informações do plugin em:
-*   Scoreboards (TAB, QuickBoard, etc)
-*   Tablists
-*   Hologramas
-*   Menus (DeluxeMenus, ChestCommands)
-*   Chat (Essentials, ChatColor)
-*   Mensagens de boas-vindas
+O Atmosfera se integra nativamente ao **PlaceholderAPI**. Você pode usar essas variáveis para mostrar o tempo real em Scoreboards, TAB, chat e muito mais.
 
-## Lista Completa
+## 📋 Lista de Variáveis
 
-| Placeholder | Descrição | Exemplo de Saída |
+| Placeholder | Retorno (Exemplo) | Descrição |
 | :--- | :--- | :--- |
-| `%atmosfera_time%` | Horário atual (HH:mm) | `14:35` |
-| `%atmosfera_time_sec%` | Horário com segundos | `14:35:12` |
-| `%atmosfera_time_12h%` | Horário em formato AM/PM | `02:35 PM` |
-| `%atmosfera_date%` | Data atual (Dia/Mês/Ano) | `16/01/2026` |
-| `%atmosfera_status%` | Status atual do clima (Texto) | `Limpo ☀️`, `Chovendo 🌧️` |
-| `%atmosfera_weather_icon%` | Apenas o ícone do clima | `☀`, `🌧`, `⛈` |
-| `%atmosfera_pvp%` | Status do PVP (Curto) | `ON`, `OFF` |
-| `%atmosfera_pvp_status%` | Status do PVP (Formatado) | `&c&l⚔ PVP ATIVO` |
-| `%atmosfera_is_night%` | Retorna se é noite (Boolean) | `true`, `false` |
-| `%atmosfera_period%` | Período do dia | `Manhã`, `Tarde`, `Noite` |
-| `%atmosfera_period_icon%` | Ícone do período (Sol/Lua) | `☀`, `☾` |
+| `%atmosfera_time%` | `14:30` | Horário (HH:mm) do fuso configurado. |
+| `%atmosfera_time_sec%` | `14:30:15` | Horário com segundos. |
+| `%atmosfera_time_12h%` | `02:30 PM` | Horário no formato AM/PM. |
+| `%atmosfera_date%` | `16/01/2026` | Data atual (DD/MM/AAAA). |
+| `%atmosfera_status%` | `Limpo ☀️` | Estado do clima traduzido. |
+| `%atmosfera_weather_icon%` | `☀️` | Apenas o ícone do clima. |
+| `%atmosfera_pvp%` | `ON` / `OFF` | Se o PVP noturno está ativo. |
+| `%atmosfera_pvp_status%` | `⚔ PVP ATIVO` | Texto formatado e colorido do estatus do PVP. |
+| `%atmosfera_period%` | `Tarde` | Período do dia (Manhã, Tarde, Noite, Madrugada). |
 
-## Como usar
+---
 
-Basta colocar o placeholder no arquivo de configuração do outro plugin.
+## 💡 Exemplos de Uso
 
-**Exemplo no TAB (config.yml):**
+### No TAB (Plugin TAB Reborn)
 ```yaml
 custom-tabs:
   default:
     footer:
-      - "&7Horário Real: &f%atmosfera_time%"
-      - "&7Clima: &f%atmosfera_status%"
+      - ""
+      - "&bHorário: &f%atmosfera_time%"
+      - "&bClima: &f%atmosfera_status%"
 ```
 
-**Exemplo no HolographicDisplays:**
+### No Scoreboard (TitleManager / AnimatedScoreboard)
+```yaml
+lines:
+  - "&7Data: &f%atmosfera_date%"
+  - "&7Hora: &f%atmosfera_time_sec%"
+  - "&7Mundo: &f%atmosfera_period%"
 ```
-/hd create relogio &eHorário de Brasília: &f%atmosfera_time%
-```
+
+### No Holograma (HolographicDisplays)
+Comando:
+`/hd create relogio &eHorário Real: &f%atmosfera_time%`

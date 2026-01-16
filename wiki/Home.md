@@ -1,22 +1,29 @@
 # Bem-vindo à Wiki do Atmosfera
 
-O **Atmosfera** é um plugin de Minecraft que traz a imersão do mundo real para dentro do seu servidor. Ele foi projetado para ser leve, configurável e fácil de usar.
+O **Atmosfera** é um plugin desenvolvido para trazer uma imersão incomparável ao seu servidor de Minecraft, sincronizando o tempo e o clima com o mundo real.
 
-Esta Wiki contém toda a documentação necessária para instalar, configurar e aproveitar ao máximo o plugin.
+Aqui você encontrará tudo o que precisa para configurar e aproveitar ao máximo o plugin.
 
-## 📚 Tópicos
+## 📚 Navegação
 
-*   **[Página Inicial](Home)**: Visão geral e introdução.
-*   **[Instalação e Primeiros Passos](Instalacao)**: Como instalar e rodar o plugin.
-*   **[Guia de Configuração (config.yml)](Configuracao)**: Explicação detalhada de cada opção de configuração.
-*   **[Placeholders e Integrações](Placeholders)**: Lista de variáveis para usar em Scoreboards, TAB, Hologramas, etc.
-*   **[Comandos e Permissões](Comandos)**: Lista de comandos disponíveis.
+### 🚀 Começando
+*   **[Instalação](Instalacao)**: Requisitos e passo a passo para instalar.
+*   **[FAQ (Perguntas Frequentes)](FAQ)**: Soluções para problemas comuns.
 
-## 🚀 Por que usar o Atmosfera?
+### ⚙️ Configuração
+*   **[Guia de Configuração (config.yml)](Configuracao)**: Entenda cada linha do arquivo de configuração.
+*   **[Comandos e Permissões](Comandos-e-Permissoes)**: Lista completa para admins e jogadores.
 
-1.  **Imersão Total**: Se está chovendo na sua cidade, choverá no jogo. Se é noite na vida real, será noite no jogo.
-2.  **Eventos Dinâmicos**: O sistema de PVP Noturno cria uma dinâmica interessante de "Dia Seguro / Noite Perigosa".
-3.  **Flexibilidade**: Você pode escolher qualquer lugar do mundo para sincronizar, não apenas o horário do servidor.
+### 🔌 Integrações
+*   **[Placeholders](Placeholders)**: Variáveis para usar no TAB, Scoreboard e Hologramas.
 
 ---
-*Precisa de ajuda? Abra uma [Issue](https://github.com/MatheusRenzo/Atmosfera/issues) no repositório.*
+
+## 🌟 Recursos Principais
+
+1.  **Sincronização de Tempo**: O sol nasce e se põe no jogo exatamente como na vida real.
+2.  **Clima Realista**: Integração com API meteorológica. Se chove lá fora, chove no jogo.
+3.  **Eventos**: PVP Noturno automático e mensagens personalizadas.
+
+---
+*Encontrou um bug? Abra uma [Issue](https://github.com/MatheusRenzo/Atmosfera/issues).*
